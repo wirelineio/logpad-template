@@ -28,7 +28,7 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.1",
-    "@wirelineio/appkit": "^0.1.13"
+    "@wirelineio/appkit": "^0.1.14"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
