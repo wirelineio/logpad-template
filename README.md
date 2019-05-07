@@ -1,1 +1,3 @@
-# log-pad-template
+# Log Pad
+
+Basic Pad using a simple Log view.
