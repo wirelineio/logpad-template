@@ -1,0 +1,45 @@
+{
+  "name": "log-pad-template",
+  "version": "0.1.0",
+  "description": "Wireline Pad Template with LogView",
+  "keywords": [],
+  "homepage": "https://github.com/wirelineio/log-pad-template#readme",
+  "bugs": {
+    "url": "https://github.com/wirelineio/log-pad-template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wirelineio/log-pad-template.git"
+  },
+  "license": "GPL-3.0",
+  "main": "src/index.js",
+  "module": "dist/es/index.js",
+  "scripts": {
+    "build": "npm run clean && babel ./src --out-dir ./dist/es --ignore \"**/*.test.js\"",
+    "clean": "rm -rf dist",
+    "lint": "eslint ./src"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.1",
+    "@wirelineio/appkit": "^0.1.13"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",  
+    "apollo-client": "^2.5.1",  
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.5",
+    "react-dom": "^16.8.6"
+  }
+}
