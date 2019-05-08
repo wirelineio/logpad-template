@@ -2,7 +2,5 @@
 // Copyright 2019 Wireline, Inc.
 //
 
-export default {
-  view: 'example',
-  type: 'example'
-};
+export const view = 'example';
+export const type = 'example';
