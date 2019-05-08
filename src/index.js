@@ -4,11 +4,11 @@
 
 import EditIcon from '@material-ui/icons/Edit';
 
-import Pad, { VIEW } from './Pad';
+import Pad, { VIEW, TYPE } from './Pad';
 
 export default {
-  title: 'Todos',
-  type: 'todo',
+  title: 'My Example',
+  type: TYPE,
   view: VIEW,  
   main: Pad,
   listIcon: EditIcon

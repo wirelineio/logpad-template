@@ -159,6 +159,7 @@ class Pad extends Component {
   }
 }
 
-export const VIEW = 'todo';
+export const VIEW = 'example';
+export const TYPE = 'example'
 
 export default withLogView({ view: VIEW })(withStyles(styles)(Pad));
