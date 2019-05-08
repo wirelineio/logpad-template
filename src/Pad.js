@@ -11,6 +11,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 import { withLogView } from '@wirelineio/appkit';
 
+import { view } from './def';
+
 const styles = (theme) => ({
   root: {
     flex: 1,
@@ -159,7 +161,4 @@ class Pad extends Component {
   }
 }
 
-export const VIEW = 'example';
-export const TYPE = 'example'
-
-export default withLogView({ view: VIEW })(withStyles(styles)(Pad));
+export default withLogView({ view })(withStyles(styles)(Pad));
