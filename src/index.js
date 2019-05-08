@@ -4,14 +4,12 @@
 
 import EditIcon from '@material-ui/icons/Edit';
 
-import Todos, { VIEW } from './Todos';
+import Pad, { VIEW } from './Pad';
 
 export default {
   title: 'Todos',
   type: 'todo',
-  view: VIEW,
-  path: '/todo-list/:itemId',
-  exact: true,
-  main: Todos,
+  view: VIEW,  
+  main: Pad,
   listIcon: EditIcon
 };

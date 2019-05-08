@@ -1,15 +1,15 @@
 {
-  "name": "log-pad-template",
+  "name": "logpad-template",
   "version": "0.1.0",
   "description": "Wireline Pad Template with LogView",
   "keywords": [],
-  "homepage": "https://github.com/wirelineio/log-pad-template#readme",
+  "homepage": "https://github.com/wirelineio/logpad-template#readme",
   "bugs": {
-    "url": "https://github.com/wirelineio/log-pad-template/issues"
+    "url": "https://github.com/wirelineio/logpad-template/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wirelineio/log-pad-template.git"
+    "url": "git+https://github.com/wirelineio/logpad-template.git"
   },
   "license": "GPL-3.0",
   "main": "src/index.js",
@@ -28,7 +28,8 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.1",
-    "@wirelineio/appkit": "^0.1.14"
+    "@wirelineio/appkit": "^0.1.14",
+    "memoize-one": "^5.0.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
