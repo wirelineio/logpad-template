@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
-import { view } from './def';
-
 import { withLogView } from '@wirelineio/appkit';
+
+import { view } from './defs';
 
 class Pad extends Component {
 
@@ -11,7 +11,7 @@ class Pad extends Component {
 
     const handleKeyUp = async (event) => {
       if(event.key === 'Enter') {
-        await appendChange({ id: Date.now(), text: event.target.value })
+        await appendChange({ id: Date.now(), text: event.target.value });
       }
     }
 
