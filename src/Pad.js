@@ -1,33 +1,26 @@
-
 import React, { Component } from 'react';
+
 import { withLogView } from '@wirelineio/appkit';
+
+import ItemList from './lib/ItemList';
 
 import { view } from './defs';
 
 class Pad extends Component {
 
-  render() {
-    const { title, logs = [], appendChange } = this.props;
+  handleCreate = async (text) => {
+    const { appendChange } = this.props;
 
-    const handleKeyUp = async (event) => {
-      if(event.key === 'Enter') {
-        await appendChange({ id: Date.now(), text: event.target.value });
-      }
-    }
+    await appendChange({ id: Date.now(), text });
+  };
+
+  render() {
+    const { logs = [] } = this.props;
 
     return (
-      <ul>
-        <li>{title}</li>
-        <li>
-          <input type="text" onKeyUp={handleKeyUp} />
-        </li>
-        {logs.map(item => (
-          <li key={item.id}>{item.text}</li>
-        ))}
-      </ul>
+      <ItemList items={logs} onCreate={this.handleCreate} />
     );
   }
 }
-
 
 export default withLogView({ view })(Pad);
