@@ -10,16 +10,18 @@ const styles = () => ({
 
   input: {
     outline: 'none',
+    width: 300,
+    marginBottom: 8,
+    padding: 4,
     fontFamily: 'sans-serif',
     fontSize: 20,
-    width: 300,
-    marginBottom: 8
   },
 
   item: {
+    margin: 2,
+    padding: 4,
     fontFamily: 'sans-serif',
     fontSize: 20,
-    margin: 3
   }
 });
 

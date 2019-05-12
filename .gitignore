@@ -1,5 +1,6 @@
 node_modules
-webpack.zip
 dist
 data
+webpack.zip
+yarn.lock
 .DS_Store
