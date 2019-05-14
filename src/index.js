@@ -1,4 +1,4 @@
-import EditIcon from '@material-ui/icons/Edit';
+import Icon from '@material-ui/icons/Edit';
 
 import { view, type } from './defs';
 import Pad from './Pad';
@@ -8,5 +8,5 @@ export default {
   type,
   view,
   main: Pad,
-  icon: EditIcon
+  icon: Icon
 };
