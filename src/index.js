@@ -1,12 +1,7 @@
-import Icon from '@material-ui/icons/Edit';
-
-import { view, type } from './defs';
+import Defs from './defs';
 import Pad from './Pad';
 
 export default {
-  title: 'LogPad',
-  type,
-  view,
-  main: Pad,
-  icon: Icon
+  ...Defs,
+  main: Pad
 };
