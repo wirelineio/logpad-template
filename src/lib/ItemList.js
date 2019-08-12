@@ -1,58 +1,165 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
+import Checkbox from '@material-ui/core/Checkbox';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
 
-// TODO(burdon): Factor out (move to @wirelineio/gem)
+import AddIcon from '@material-ui/icons/Add';
 
 const styles = () => ({
   root: {
-    margin: 32
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'center'
   },
 
-  input: {
-    outline: 'none',
-    width: 300,
-    marginBottom: 8,
-    padding: 4,
-    fontFamily: 'sans-serif',
-    fontSize: 20,
+  column: {
+    display: 'flex',
+    width: 500
   },
 
   item: {
-    margin: 2,
-    padding: 4,
-    fontFamily: 'sans-serif',
-    fontSize: 20,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  itemText: {
+    display: 'flex',
+    flex: 1,
+
+    '& input': {
+      fontSize: 20
+    }
+  },
+
+  itemTitle: {
+    display: 'flex',
+    flex: 1,
+    fontSize: 20
+  },
+
+  completed: {
+    textDecoration: 'line-through'
   }
 });
 
 class ItemList extends Component {
+  state = {
+    text: ''
+  };
 
-  handleKeyUp = (event) => {
-    const { onCreate } = this.props;
+  handleTextChange = (event) => {
+    this.setState({
+      text: event.target.value
+    });
+  };
 
-    if (event.key === 'Enter' && event.target.value) {
-      onCreate(event.target.value);
-      this._input.value = '';
+  handleKeyPress = (event) => {
+    switch (event.key) {
+      case 'Enter': {
+        this.handleAdd();
+        break;
+      }
+
+      default: break;
     }
   };
 
+  handleAdd = async () => {
+    const { text } = this.state;
+    const { onCreate } = this.props;
+    if (!text) {
+      this._text.focus();
+      return;
+    }
+
+    await onCreate(text);
+
+    this.setState({
+      text: ''
+    }, () => {
+      this._text.focus();
+    });
+  };
+
+  handleToggleComplete = item => async () => {
+    const { onToggleCheck } = this.props;
+    await onToggleCheck(item);
+  }
+
   render() {
     const { classes, items = [] } = this.props;
+    const { text } = this.state;
 
     return (
       <div className={classes.root}>
-        <input 
-          ref={el => this._input = el} 
-          type="text" 
-          className={classes.input} 
-          onKeyUp={this.handleKeyUp} 
-          spellCheck={false}
-        />
+        <div className={classes.column}>
+          <Grid container direction="column">
+            <Grid item className={classes.item}>
+              <Checkbox style={{ visibility: 'hidden' }} />
+              <TextField
+                inputRef={el => { this._text = el; }}
+                value={text}
+                onChange={this.handleTextChange}
+                onKeyPress={this.handleKeyPress}
+                margin="normal"
+                autoFocus
+                className={classes.itemText}
+              />
+              <IconButton onClick={this.handleAdd}>
+                <AddIcon />
+              </IconButton>
+            </Grid>
 
-        {items.map(item => (
-          <div key={item.id} className={classes.item}>{item.text}</div>
-        ))}
+            {items.map(item => (
+              <Grid item key={item.id} className={classes.item}>
+                <Checkbox
+                  checked={item.completed}
+                  onChange={this.handleToggleComplete(item)}
+                  color="primary"
+                />
+                <Typography
+                  component="span"
+                  className={classNames(classes.itemTitle, item.completed && classes.completed)}
+                >
+                  {item.text}
+                </Typography>
+              </Grid>
+            ))}
+          </Grid>
+        </div>
       </div>
+
+
+    //   <div className={classes.root}>
+    //     <input 
+    //       ref={el => this._input = el} 
+    //       type="text" 
+    //       className={classes.input} 
+    //       onKeyUp={this.handleKeyUp} 
+    //       spellCheck={false}
+    //     />
+
+    //     {items.map(item => (
+    //       <div key={item.id} className={classes.item}>
+    //         <Checkbox
+    //           checked={item.completed}
+    //           onChange={() => onChecked(item)}
+    //           color="primary"
+    //         />
+    //         <Typography
+    //           component="span"
+    //           className={item.completed && classes.completed}
+    //           >
+    //           {item.text}
+    //         </Typography>            
+    //       </div>
+    //     ))}
+    //   </div>
     );
   }
 }

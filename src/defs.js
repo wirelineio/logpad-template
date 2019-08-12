@@ -1,8 +1,9 @@
-import Icon from '@material-ui/icons/Edit';
+import Icon from '@material-ui/icons/Check';
+import color from '@material-ui/core/colors/purple';
 
 export default {
   title: 'LogPad',
-  type: 'example',
   view: 'example',
-  icon: Icon
+  icon: Icon,
+  color: color[400]
 };
