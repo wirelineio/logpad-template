@@ -12,8 +12,8 @@ import { computeItems } from './lib/Payload';
 import Defs from './defs';
 
 /**
- * The Pad component uses the `withLogView` higher-order-component,
- * which injects the `view` property.
+ * The Pad component is wrapped by the `withLogView` 
+ * higher-order-component, which injects the `view` property.
  */
 class Pad extends Component {
 
