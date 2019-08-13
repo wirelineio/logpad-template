@@ -1,4 +1,6 @@
-
+//
+// Wireline SDK
+//
 
 export const computeItems = log => {
   let items = log.filter(change => change.action === 'add').map(change => change.payload);
@@ -19,4 +21,4 @@ export const computeItems = log => {
   });
   
   return items;
-}
+};

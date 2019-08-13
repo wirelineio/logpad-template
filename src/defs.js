@@ -1,3 +1,7 @@
+//
+// Wireline SDK
+//
+
 import Icon from '@material-ui/icons/Check';
 import color from '@material-ui/core/colors/purple';
 

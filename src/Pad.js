@@ -1,3 +1,7 @@
+//
+// Wireline SDK
+//
+
 import React, { Component } from 'react';
 
 import { withLogView } from '@wirelineio/appkit';
@@ -7,14 +11,20 @@ import { computeItems } from './lib/Payload';
 
 import Defs from './defs';
 
+/**
+ * The Pad component uses the `withLogView` higher-order-component,
+ * which injects the `view` property.
+ */
 class Pad extends Component {
 
   static getDerivedStateFromProps(props, state) {
-    const { view: { log } } = props;
+    if (!state.local) {
+      const { view } = props;
 
-    return {
-      items: computeItems(log)
-    };
+      return {
+        items: computeItems(view.log)
+      };
+    }
   }
 
   state = {
@@ -35,7 +45,6 @@ class Pad extends Component {
   };
 
   handleCheck = async (item) => {
-    console.log(item)
     const { view } = this.props;
     await view.appendChange({
       action: 'modify',
@@ -44,13 +53,17 @@ class Pad extends Component {
         completed: !item.completed
       }
     })
-  }
+  };
 
   render() {
     const { items } = this.state;
 
     return (
-      <ItemList items={items} onCreate={this.handleCreate} onToggleCheck={this.handleCheck} />
+      <ItemList 
+        items={items} 
+        onCreate={this.handleCreate} 
+        onToggleCheck={this.handleCheck} 
+      />
     );
   }
 }

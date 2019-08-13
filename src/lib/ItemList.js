@@ -1,3 +1,7 @@
+//
+// Wireline SDK
+//
+
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -48,6 +52,7 @@ const styles = () => ({
 });
 
 class ItemList extends Component {
+
   state = {
     text: ''
   };
@@ -89,7 +94,7 @@ class ItemList extends Component {
   handleToggleComplete = item => async () => {
     const { onToggleCheck } = this.props;
     await onToggleCheck(item);
-  }
+  };
 
   render() {
     const { classes, items = [] } = this.props;
@@ -133,7 +138,6 @@ class ItemList extends Component {
           </Grid>
         </div>
       </div>
-
 
     //   <div className={classes.root}>
     //     <input 
