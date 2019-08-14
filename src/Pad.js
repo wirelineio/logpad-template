@@ -18,20 +18,18 @@ import Defs from './defs';
 class Pad extends Component {
 
   static getDerivedStateFromProps(props, state) {
+    const { view } = props;
+
     if (state.local) {
       return { local: false };
     }
-
-    const { view } = props;
 
     return {
       items: computeItems(view.log)
     };
   }
 
-  state = {
-    items: []
-  };
+  state = {};
 
   handleCreate = async (text) => {
     const { view } = this.props;
