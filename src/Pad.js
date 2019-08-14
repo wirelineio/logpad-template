@@ -18,13 +18,15 @@ import Defs from './defs';
 class Pad extends Component {
 
   static getDerivedStateFromProps(props, state) {
-    if (!state.local) {
-      const { view } = props;
-
-      return {
-        items: computeItems(view.log)
-      };
+    if (state.local) {
+      return { local: false };
     }
+
+    const { view } = props;
+
+    return {
+      items: computeItems(view.log)
+    };
   }
 
   state = {
