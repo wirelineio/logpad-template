@@ -3,11 +3,11 @@
 //
 
 import Icon from '@material-ui/icons/Check';
-import color from '@material-ui/core/colors/purple';
+import { purple } from '@material-ui/core/colors';
 
 export default {
   title: 'Tasks',
   view: 'example',
   icon: Icon,
-  color: color[400]
+  color: purple[400]
 };
