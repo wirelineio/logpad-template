@@ -3,7 +3,7 @@
 //
 
 import Icon from '@material-ui/icons/Check';
-import { purple } from '@material-ui/core/colors';
+import purple from '@material-ui/core/colors/purple';
 
 export default {
   title: 'Tasks',
